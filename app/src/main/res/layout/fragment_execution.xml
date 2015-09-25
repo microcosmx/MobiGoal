@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/tv_current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current:"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/iv_current_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:scaleType="matrix"
+        android:src="#228fbd" />
+    
+     <android.support.v4.view.ViewPager
+        android:id="@+id/vp_execution_current"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:background="#fff"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+     
+     <TextView
+        android:id="@+id/tv_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finished:"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/iv_finish_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:scaleType="matrix"
+        android:src="#228fbd" />
+    
+     <android.support.v4.view.ViewPager
+        android:id="@+id/vp_execution_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:background="#fff"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+</LinearLayout>

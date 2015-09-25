@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MobiGoal</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="del_mes">DEL</string>
+
+    <!-- 标签页内容 -->
+    <string name="tab_message">Message</string>
+    <string name="tab_mygoal">MyGoal</string>
+    <string name="tab_execution">Execution</string>
+    <string name="tab_procedure">Procedure</string>
+    <string name="tab_download">Download</string>
+
+    <!-- Message标签页的两个标签 -->
+    <string name="tab_message_unread">New</string>
+    <string name="tab_message_read">History</string>
+
+    <!-- menu弹出框中的两个选项 -->
+    <string name="menu_abstract">Abstract</string>
+    <string name="menu_details">Details</string>
+
+    <!-- orders弹出框中的按钮内容 -->
+    <string name="dialog_start">Start</string>
+    <string name="dialog_suspend">Suspend</string>
+    <string name="dialog_resume">Resume</string>
+    <string name="dialog_stop">Stop</string>
+    <string name="dialog_reset">Reset</string>
+    <string name="dialog_cancel">Cancel</string>
+
+    <!-- setting界面的按钮，测试弹出通知用 -->
+    <string name="bt_showNotification">Show Notification</string>
+
+    <!-- welcome界面的按钮内容 -->
+    <string name="bt_setAgent">Set Agent</string>
+    <string name="bt_startAgent">Start Agent</string>
+    <string name="tv_setAgent">Click to set agent.</string>
+    <string name="tv_startAgent">Click to start agent.</string>
+
+    <!-- take picture界面的按钮内容 -->
+    <string name="bt_save_pic">OK</string>
+    <string name="bt_take_pic">Take picture</string>
+
+    <!-- binding 定制化界面的内容 -->
+    <string name="tv_external">Event:</string>
+    <string name="tv_element">Element:</string>
+    <string name="tv_setTime">Set Time:</string>
+    <string name="tv_setPhone">Set Phone:</string>
+
+    <!-- 下面是郑家欢代码中需要的string -->
+    <string name="label_nick">Enter Nickname: (eg. alice)</string>
+    <string name="label_host">Host</string>
+    <string name="label_port">Port</string>
+    <string name="button_login">Connect to JADE</string>
+    <string name="button_send">send!</string>
+    <string name="button_use"> use </string>
+    <string name="menu_settings">settings</string>
+    <string name="menu_exit">exit</string>
+    <string name="menu_participants">participants</string>
+    <string name="menu_clear">clear</string>
+    <string name="msg_nickname_in_use">Nickname already in use!</string>
+    <string name="title_activity_selection">SelectionActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>

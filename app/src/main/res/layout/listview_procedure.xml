@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_messagelayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:padding="8dp" >
+
+    <TextView
+        android:id="@+id/tv_mes_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2015.01.26 17:49"
+        android:textColor="#1874CD"
+        android:textSize="14dp"  />
+
+    <TextView
+        android:id="@+id/tv_mes_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Medium Text"
+        android:textSize="22dp" />
+
+</LinearLayout>

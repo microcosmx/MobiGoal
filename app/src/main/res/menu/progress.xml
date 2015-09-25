@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="edu.fudan.se.execution.ProcedureActivity" >
+
+    <item
+        android:id="@+id/action_refresh"
+        android:icon="@mipmap/ic_action_refresh"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="refresh"/>
+
+</menu>

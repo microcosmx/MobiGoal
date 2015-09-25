@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_main_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_tabs"
+        android:layout_gravity="center"
+        android:background="#ffffff"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+    <LinearLayout
+        android:id="@+id/ll_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/maintab_bg"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/ll_tab_mygoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="4dp" >
+
+            <ImageView
+                android:id="@+id/iv_tab_mygoal"
+                android:layout_width="24dp"
+                android:layout_height="20dp"
+                android:layout_margin="2dp"
+                android:background="@mipmap/tab_mygoal_sel"
+                android:contentDescription="@string/app_name"
+                android:focusable="false" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/tv_tab_mygoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_mygoal"
+                android:textColor="@color/tab_blue"
+                android:textSize="12sp" >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_tab_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="4dp" >
+
+            <ImageView
+                android:id="@+id/iv_tab_message"
+                android:layout_width="24dp"
+                android:layout_height="20dp"
+                android:layout_margin="2dp"
+                android:background="@mipmap/tab_message_nor"
+                android:contentDescription="@string/app_name"
+                android:focusable="false" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/tv_tab_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_message"
+                android:textColor="@color/tab_grey"
+                android:textSize="12sp" >
+            </TextView>
+        </LinearLayout>
+
+         <LinearLayout
+            android:id="@+id/ll_tab_execution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="4dp" >
+
+            <ImageView
+                android:id="@+id/iv_tab_execution"
+                android:layout_width="24dp"
+                android:layout_height="20dp"
+                android:layout_margin="2dp"
+                android:background="@mipmap/tab_execution_nor"
+                android:contentDescription="@string/app_name"
+                android:focusable="false" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/tv_tab_execution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_execution"
+                android:textColor="@color/tab_grey"
+                android:textSize="12sp" >
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

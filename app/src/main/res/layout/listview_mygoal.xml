@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 这个是显示一个goal item的布局，每个item包括goal的文字部分，以及后面相关的图片按钮 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/goal_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="15dp" 
+        android:layout_gravity="center"
+        android:textColor="#000000"
+        android:textSize="20sp" >
+    </TextView>
+
+    <ImageView
+        android:id="@+id/goal_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@mipmap/ic_action_settings"
+        android:layout_margin="15dp"
+        android:focusable="false" />
+
+</RelativeLayout>

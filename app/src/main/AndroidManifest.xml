@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.edu.fudan.se">
+
+    <!-- 连接网络的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 通知栏震动的权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- 往sdcard中写入数据的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 在sdcard中创建/删除文件的权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于访问wifi网络信息,wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 这个权限用于获取wifi的获取权限,wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 允许应用读取低级别的系统日志文件 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <!-- 摄像头权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 电话权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+
+    <application
+        android:name="cn.edu.fudan.se.mobigoal.initial.SGMApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/app__launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <service android:name="jade.android.MicroRuntimeService" />
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServiceInputText"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.inputText" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServiceTakePicture"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.takePicture" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServiceUserConfirm"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.userConfirm" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServiceQueryBookFromLibrary"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.queryBookFromLibrary" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServiceBorrowBookFromLibrary"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.borrowBookFromLibrary" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServiceQueryBookFromShop"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.queryBookFromShop" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServicePayToTheShop"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.pay" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServiceQuerySeller"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.querySeller" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServiceWeather"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.weather" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServiceWeatherCandidate"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.weatherCandidate" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.servicestub.async.webservice.IntentServiceShowContent"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.intentservice.showcontent" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.mobigoal.support.MobileLocatorService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.appservice.locator" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.edu.fudan.se.mobigoal.support.SystemBroadcastListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="service.appservice.sblistener" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+
+            </service>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="C112c857a9d5d728f318c479f5960cf6" />
+
+        <activity
+            android:name="cn.edu.fudan.se.mobigoal.initial.WelcomeActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.edu.fudan.se.mobigoal.maincontainer.MainActivity">
+
+        </activity>
+        <activity android:name="cn.edu.fudan.se.mobigoal.maincontainer.fragments.subfragments.goalmodel.GoalModelActivity">
+
+        </activity>
+        <activity
+            android:name="cn.edu.fudan.se.mobigoal.maincontainer.fragments.subfragments.download.DownloadActivity"
+            android:label="Download">
+
+            </activity>
+        <activity
+            android:name="cn.edu.fudan.se.mobigoal.maincontainer.fragments.subfragments.execution.ProcedureActivity"
+            android:label="Procedure">
+
+            </activity>
+        <activity
+            android:name="cn.edu.fudan.se.mobigoal.maincontainer.fragments.subfragments.execution.ProgressActivity"
+            android:label="Progress">
+
+            </activity>
+        <activity android:name="cn.edu.fudan.se.agent.activity.SettingAgentActivity">
+
+        </activity>
+        <activity android:name="cn.edu.fudan.se.agent.activity.StartAgentActivity">
+
+        </activity>
+        <activity android:name="cn.edu.fudan.se.mobigoal.support.TakePictureActivity">
+
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/ll_execution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:padding="2dp" >
+
+            <TextView
+                android:id="@+id/tv_execution_finishtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="2015-01-23 23:14"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/mes_header_tv_blue" />
+
+            <TextView
+                android:id="@+id/tv_execution_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="State: Achieved"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/state_executing_green" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_execution_goalname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+</LinearLayout>

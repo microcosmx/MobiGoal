@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/ab_iv_gmback"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center|left"
+        android:layout_marginLeft="5dp"
+        android:background="@mipmap/ic_action_previous_item"
+        android:contentDescription="@string/app_name" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/ab_tv_goalmodel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical"
+        android:text="My Goal"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:id="@+id/ab_iv_gmrefresh"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center|right"
+        android:layout_marginRight="5dp"
+        android:background="@mipmap/ic_action_refresh"
+        android:contentDescription="@string/app_name" >
+    </ImageView>
+
+</FrameLayout>

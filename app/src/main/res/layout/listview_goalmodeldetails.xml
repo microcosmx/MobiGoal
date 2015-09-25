@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tree_rl_goal"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_gravity="left"
+    android:background="#FFFFFF"
+    android:padding="3dp" >
+
+    <ImageView
+        android:id="@+id/tree_iv_goal_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="5dp"
+        android:src="@mipmap/tree_view_icon_and" />
+
+    <TextView
+        android:id="@+id/tree_tv_goal_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@id/tree_iv_goal_icon"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="goal name"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="#000" />
+
+    <ImageView
+        android:id="@+id/tree_iv_goal_state"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:src="@mipmap/state_initial" />
+
+</RelativeLayout>

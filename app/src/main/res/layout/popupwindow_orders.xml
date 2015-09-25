@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:id="@+id/popdialog_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_style_alert_dialog_background"
+        android:columnCount="3"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:rowCount="2">
+
+        <Button
+            android:id="@+id/bt_dialog_start"
+            android:layout_width="100dp"
+            android:background="@drawable/btn_style_alert_dialog_button"
+            android:text="@string/dialog_start"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/bt_dialog_suspend"
+            android:layout_width="100dp"
+            android:background="@drawable/btn_style_alert_dialog_button"
+            android:text="@string/dialog_suspend"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/bt_dialog_resume"
+            android:layout_width="100dp"
+            android:background="@drawable/btn_style_alert_dialog_button"
+            android:text="@string/dialog_resume"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/bt_dialog_stop"
+            android:layout_width="100dp"
+            android:background="@drawable/btn_style_alert_dialog_button"
+            android:text="@string/dialog_stop"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/bt_dialog_reset"
+            android:layout_width="100dp"
+            android:background="@drawable/btn_style_alert_dialog_button"
+            android:text="@string/dialog_reset"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/bt_dialog_cancel"
+            android:layout_width="100dp"
+            android:background="@drawable/btn_style_alert_dialog_cancel"
+            android:text="@string/dialog_cancel"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+    </GridLayout>
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="unclickable_grey">#777</color>
+    <color name="clickable_black">#000</color>
+    
+    <color name="gl_0">#AAFFFF</color>
+    <color name="gl_1">#BBFFFF</color>
+    <color name="gl_2">#CCFFFF</color>
+    <color name="gl_3">#DDFFFF</color>
+    <color name="gl_4">#EEFFFF</color>
+    <color name="gl_5">#FFFFFF</color>
+    
+    <color name="custom">#CCFFFF</color>
+    
+    <color name="tab_grey">#3e3a39</color>
+    <color name="tab_blue">#1874CD</color>
+    
+    <color name="mes_tab_grey">#ffffff</color>
+    <color name="mes_tab_blue">#1874CD</color>
+    
+    <color name="mes_header_bg_grey">#eeeeee</color>
+    <color name="mes_header_bg_blue">#1E90FF</color>
+    <color name="mes_header_tv_blue">#1874CD</color>
+    <color name="mes_header_tv_white">#ffffff</color>
+    <color name="mes_border_blue">#1874CD</color>
+    
+    <color name="state_executing_green">#008B00</color>
+    <color name="state_finished_blue">#1874CD</color>
+
+</resources>
