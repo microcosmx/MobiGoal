@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoalModel name="Book Acquisition" description="This is a goal model about getting a book!">
+
+	<ElementMachine id="0" type="GoalMachine" name="Acquire Book"
+		level="0" description="Acquire Book">
+		<decomposition>0</decomposition>
+		<schedulerMethod>1</schedulerMethod>
+		<Condition type="PRE" valueType="Boolean" leftValueDes="Authorization" operator="EQUAL" rightValue = "true">
+		    <!-- 只有pre condition需要设置是否能修复 -->
+		    <canRepairing>false</canRepairing>
+		</Condition>
+	</ElementMachine>
+
+	<ElementMachine id="1" type="TaskMachine" name="Get Book Info"
+		level="1" description="input the title of the book">
+		<parentGoal>Acquire Book</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>inputText</executingRequestedServiceName>
+		<executingLocation>selfLocation</executingLocation>
+	</ElementMachine>
+
+	<ElementMachine id="2" type="GoalMachine" name="Book Acquired"
+		level="1" description="Book Acquired">
+		<parentGoal>Acquire Book</parentGoal>
+		<decomposition>1</decomposition>
+		<schedulerMethod>-1</schedulerMethod>
+		<priorityLevel>1</priorityLevel>
+	</ElementMachine>
+	
+	<ElementMachine id="3" type="GoalMachine" name="Acquired by Borrowing"
+		level="2" description="library">
+		<parentGoal>Book Acquired</parentGoal>
+		<decomposition>0</decomposition>
+		<schedulerMethod>1</schedulerMethod>
+		<priorityLevel>2</priorityLevel>
+	</ElementMachine>
+	
+	<ElementMachine id="4" type="TaskMachine" name="Search Book in Library"
+		level="3" description="query book">
+		<parentGoal>Acquired by Borrowing</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>queryBookFromLibrary</executingRequestedServiceName>
+		<executingLocation>Science Library#Computer Library</executingLocation>
+	</ElementMachine>
+	
+	<ElementMachine id="5" type="TaskMachine" name="Borrow Book from Library"
+		level="3" description="borrow the book : ">
+		<parentGoal>Acquired by Borrowing</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>borrowBookFromLibrary</executingRequestedServiceName>
+		<executingLocation>needLocation</executingLocation>
+	</ElementMachine>
+	
+	<ElementMachine id="6" type="GoalMachine" name="Acquired by Buying"
+		level="2" description="bookstore">
+		<parentGoal>Book Acquired</parentGoal>
+		<decomposition>1</decomposition>
+		<schedulerMethod>-1</schedulerMethod>
+		<priorityLevel>1</priorityLevel>
+	</ElementMachine>
+	
+	<ElementMachine id="7" type="GoalMachine" name="Bought from CBS"
+		level="3" description="campus shop">
+		<parentGoal>Acquired by Buying</parentGoal>
+		<decomposition>0</decomposition>
+		<schedulerMethod>1</schedulerMethod>
+		<priorityLevel>1</priorityLevel>
+	</ElementMachine>
+	
+	<ElementMachine id="8" type="TaskMachine" name="Search Book in CBS"
+		level="4" description="query book from shop">
+		<parentGoal>Bought from CBS</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>queryBookFromShop</executingRequestedServiceName>
+		<executingLocation>Bookstore</executingLocation>
+	</ElementMachine>
+	
+	<ElementMachine id="9" type="TaskMachine" name="Place Book Order"
+		level="4" description="confrim to bug from shop">
+		<parentGoal>Bought from CBS</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>userConfirm</executingRequestedServiceName>
+		<executingLocation>selfLocation</executingLocation>
+	</ElementMachine>
+	
+	<ElementMachine id="10" type="TaskMachine" name="Get Book"
+		level="4" description="Get Book for the book with: ">
+		<parentGoal>Bought from CBS</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>pay</executingRequestedServiceName>
+		<executingLocation>selfLocation</executingLocation>
+		<Condition type="PRE" valueType="Double" leftValueDes="AccountBalance" operator="BIGGERTHAN" rightValue = "0">
+		    <!-- 只有pre condition需要设置是否能修复 -->
+		    <canRepairing>false</canRepairing>
+		</Condition>
+		<!-- 承诺10分钟内做完 -->
+		<Condition type="COMMITMENT" valueType="Long" leftValueDes="TIME" operator="SMALLERTHAN" rightValue = "10">
+		</Condition>
+	</ElementMachine>
+
+	<ElementMachine id="11" type="GoalMachine" name="Bought from SHS"
+		level="3" description="send hand shop">
+		<parentGoal>Acquired by Buying</parentGoal>
+		<decomposition>0</decomposition>
+		<schedulerMethod>1</schedulerMethod>
+		<priorityLevel>1</priorityLevel>
+	</ElementMachine>
+	
+	<ElementMachine id="12" type="TaskMachine" name="Search Book in SHM"
+		level="4" description="Input a seller name about the book: ">
+		<parentGoal>Bought from SHS</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>querySeller</executingRequestedServiceName>
+		<executingLocation>selfLocation</executingLocation>
+	</ElementMachine>
+
+	<ElementMachine id="13" type="TaskMachine" name="Select Seller"
+		level="4" description="select a seller">
+		<parentGoal>Bought from SHS</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>showcontent</executingRequestedServiceName>
+		<executingLocation>selfLocation</executingLocation>
+	</ElementMachine>
+	
+	<ElementMachine id="14" type="TaskMachine" name="Trade Face to Face"
+		level="4" description="Trade face to face: ">
+		<parentGoal>Bought from SHS</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>facetofacetrade</executingRequestedServiceName>
+		<executingLocation>needLocation</executingLocation>
+	</ElementMachine>
+	
+	<RequestData name="book title" from="Get Book Info" to="CONSTANTVALUE" contentType="Text"></RequestData>
+	<RequestData name="book title" from="Get Book Info" to="Search Book in Library" contentType="Text"></RequestData>
+	<RequestData name="Does ?location? have the book? Title: %?location?" from="Search Book in Library" to="Borrow Book from Library" contentType="BooleanText"></RequestData>
+	
+	<RequestData name="book title" from="Get Book Info" to="Search Book in CBS" contentType="Text"></RequestData>
+	<RequestData name="book price in bookstore" from="Search Book in CBS" to="Place Book Order" contentType="Text"></RequestData>
+	<RequestData name="Would you like to buy the book from bookstore? Price is: " from="Place Book Order" to="noUse2" contentType="Boolean"></RequestData>
+	<RequestData name="book price in bookstore" from="Search Book in CBS" to="Get Book" contentType="Text"></RequestData>
+	
+	<RequestData name="book title" from="Get Book Info" to="Search Book in SHM" contentType="Text"></RequestData>
+	<RequestData name="second hand seller infos" from="Search Book in SHM" to="Select Seller" contentType="List"></RequestData>
+	<RequestData name="one seller" from="Select Seller" to="Trade Face to Face" contentType="Text"></RequestData>
+	
+	<EventBinding device="Time12:00" external="startGM"></EventBinding>
+	<EventBinding device="NewSMS" external="quitTE" element="Get Book Info"></EventBinding>
+	<EventBinding device="Phone13827956766" external="quitTE" element="Get Book Info"></EventBinding>
+	
+</GoalModel>

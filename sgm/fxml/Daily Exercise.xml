@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoalModel name="Daily Exercise" description="This is a goal model. Its name is myGoal. 这个goal model不需要委托，完全本地执行">
+
+	<ElementMachine id="0" type="GoalMachine" name="myGoal"
+		level="0" description="my goal">
+		<decomposition>0</decomposition>
+		<schedulerMethod>1</schedulerMethod>
+		<!-- 承诺60分钟内做完 -->
+		<Condition type="COMMITMENT" valueType="Long" leftValueDes="TIME" operator="SMALLERTHAN" rightValue = "60">
+		</Condition>
+	</ElementMachine>
+
+	<ElementMachine id="1" type="GoalMachine" name="alice"
+		level="1" description="alice">
+		<parentGoal>myGoal</parentGoal>
+		<decomposition>0</decomposition>
+		<schedulerMethod>0</schedulerMethod>
+		<priorityLevel>1</priorityLevel>
+		<Condition type="CONTEXT" valueType="Int" leftValueDes="Temperature" operator="BIGGERTHAN" rightValue = "0">
+		</Condition>
+	</ElementMachine>
+
+	<ElementMachine id="2" type="TaskMachine" name="aliceChild_1"
+		level="2" description="alice child 1">
+		<parentGoal>alice</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<!-- executingRequestedServiceName的格式必须是 AndroidManifest.xml中service标签中action name-->
+		<executingRequestedServiceName>setcityname</executingRequestedServiceName>
+		<Condition type="POST" valueType="Int" leftValueDes="Temperature" operator="SMALLERTHAN" rightValue = "0">
+		</Condition>
+	</ElementMachine>
+
+	<ElementMachine id="3" type="TaskMachine" name="aliceChild_2"
+		level="2" description="alice child 2">
+		<parentGoal>alice</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>setcityname</executingRequestedServiceName>
+	</ElementMachine>
+
+	<ElementMachine id="4" type="GoalMachine" name="bob"
+		level="1" description="bob">
+		<parentGoal>myGoal</parentGoal>
+		<decomposition>1</decomposition>
+		<schedulerMethod>-1</schedulerMethod>
+		<priorityLevel>1</priorityLevel>
+	</ElementMachine>
+
+	<ElementMachine id="5" type="TaskMachine" name="bobChild_1"
+		level="2" description="bob child 1">
+		<parentGoal>bob</parentGoal>
+		<priorityLevel>1</priorityLevel>
+		<executingRequestedServiceName>setcityname</executingRequestedServiceName>
+		<Condition type="CONTEXT" valueType="Int" leftValueDes="Temperature" operator="SMALLERTHAN" rightValue = "0">
+		</Condition>
+	</ElementMachine>
+
+	<ElementMachine id="6" type="TaskMachine" name="bobChild_2"
+		level="2" description="bob child 2">
+		<parentGoal>bob</parentGoal>
+		<priorityLevel>2</priorityLevel>
+		<waitingTimeLimit>5</waitingTimeLimit>
+		<executingRequestedServiceName>setcityname</executingRequestedServiceName>
+		<Condition type="PRE" valueType="Int" leftValueDes="Temperature" operator="SMALLERTHAN" rightValue = "0">
+		    <!-- 只有pre condition需要设置是否能修复 -->
+		    <canRepairing>false</canRepairing>
+		</Condition>
+	</ElementMachine>
+
+	<ElementMachine id="7" type="TaskMachine" name="bobChild_3"
+		level="2" description="bob child 3">
+		<parentGoal>bob</parentGoal>
+		<priorityLevel>3</priorityLevel>
+		<executingRequestedServiceName>weather</executingRequestedServiceName>
+		<Condition type="POST" valueType="Int" leftValueDes="Temperature" operator="SMALLERTHAN" rightValue = "0">
+		</Condition>
+	</ElementMachine>
+	
+	<RequestData name="cityName" from="aliceChild_1" to="bobChild_3" contentType="Text"></RequestData>
+	<EventBinding device="NewSMS" external="startGM"></EventBinding>
+
+</GoalModel>
